@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:hint="enter age"
                 android:inputType="phone"
-                android:maxLength="3"
+                android:maxLength="2"
                 android:layout_marginStart="60dp"
                 android:layout_marginLeft="60dp"/>
 

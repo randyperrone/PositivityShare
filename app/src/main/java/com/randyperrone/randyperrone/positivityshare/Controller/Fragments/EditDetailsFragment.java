@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -182,6 +183,20 @@ public class EditDetailsFragment extends Fragment {
         String usernameEdited = usernameET.getText().toString();
         String ageEdited = ageET.getText().toString();
         String aboutEdited = aboutET.getText().toString();
+
+        if(ageEdited != null && !ageEdited.isEmpty()){
+            int age = 0;
+            try{
+                age = Integer.valueOf(ageEdited);
+            }catch (Exception e){
+                Log.e(TAG, e.toString());
+            }
+            if(age < 1){
+                Toast.makeText(getActivity(), "Age cannot be less than 1",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
 
         try{
             if(!usernameEdited.equals(usernameStr) || !ageEdited.equals(ageStr) || !aboutEdited.equals(aboutStr)){
